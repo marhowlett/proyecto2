@@ -16,7 +16,13 @@ $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
 if ($conexion->connect_error) {
  die("La conexion falló: " . $conexion->connect_error);
 }
+session_start();
+// Destruir todas las variables de sesi�n.
+$_SESSION = array();
+if (!isset($_SESSION["username"])){
+  $_SESSION["username"] = "";
 
+}
 $ban = 0;
 $user=$_POST["username"];  //lee usuario del formulario
 $clave1=$_POST["password"];  //lee clave del formulario
@@ -31,7 +37,7 @@ while ($fila = $resultado->fetch_assoc()) {
 $resultado->close();
 if ($ban==1){
     $_SESSION["username"]=$user;
-    header("Location: index.html");
+    header("Location: index2.php");
 }else{
     header("Location: loginin.php");
 }

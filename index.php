@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -39,9 +42,28 @@
             <li class="nav-item">
                 <a class="nav-link nav2header" href="#otra">Otra información</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link nav2header" href="loginin.php">Iniciar sesión</a>
-            </li>
+
+            <?php
+            if ($_SESSION["username"] != "") {
+
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link nav2header" href="index2.php">Panel de control</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav2header" href="logout.php">Cerrar sesión</a>
+                </li>
+                <?php
+            } else {
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link nav2header" href="loginin.php">Iniciar sesión</a>
+                </li>
+                <?php
+            }
+            ?>
+
+
         </ul>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -90,13 +112,24 @@
             <p class="justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum magna felis, quis egestas mi ullamcorper at. In id enim risus. Mauris lobortis quam arcu. Donec vehicula massa nec enim vestibulum, at consectetur justo condimentum. Cras at volutpat velit. Cras leo justo, pellentesque luctus vehicula eget, consequat et mi. Cras dictum mauris in odio gravida tincidunt. Phasellus sed massa in lectus tincidunt faucibus quis ac diam.</p>
         </div>
     </section>
-    <section class="section hacemos" id="otra">
-        <img src="img/foto_nueva.jpg" class="rounded float-left fotos" alt="Información de la pulga">
-        <img src="img/foto_nueva.jpg" class="rounded float-right fotos">
-        <h2>Otra Información</h2>
-        <p class="foto_texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum leo dui, vitae dapibus magna sodales eget. Cras ultricies justo quis metus interdum condimentum. Vestibulum eget velit id erat venenatis luctus in vel ante. Aenean mi justo, iaculis ac tempor a, vehicula non odio. Ut interdum turpis a justo pretium tempus. Donec laoreet posuere eros et dignissim. Nam interdum congue condimentum. Nunc sed mauris a ex faucibus aliquam ac in sapien.</p>
-        <p class="foto_texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum leo dui, vitae dapibus magna sodales eget. Cras ultricies justo quis metus interdum condimentum. Vestibulum eget velit id erat venenatis luctus in vel ante. Aenean mi justo, iaculis ac tempor a, vehicula non odio.
-        </p>
+    <section class="section hacemos clearfix" id="otra" >
+      <div class="container ">
+    <h2>Otra Información</h2>
+    <div class="columns is-gapless">
+<div class="column">
+  <img src="img/foto_nueva.jpg" class="rounded fotos" alt="Información de la pulga">
+</div>
+<div class="column">
+  <p class="foto_texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum leo dui, vitae dapibus magna sodales eget. Cras ultricies justo quis metus interdum condimentum. Vestibulum eget velit id erat venenatis luctus in vel ante. Aenean mi justo, iaculis ac tempor a, vehicula non odio. Ut interdum turpis a justo pretium tempus. Donec laoreet posuere eros et dignissim. Nam interdum congue condimentum. Nunc sed mauris a ex faucibus aliquam ac in
+  sapien.</p>
+</div>
+<div class="column">
+<img src="img/foto_nueva.jpg" class="rounded fotos" alt="Información de la pulga">
+</div>
+
+</div>
+
+
     </section>
     <!-- Footer -->
     <footer class="page-footer font-small blue">

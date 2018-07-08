@@ -18,12 +18,12 @@
             <img src="img/logo-regalo.png" alt="" width="100px" height="100px">
         </div>
         <h1 class="text-center">La Pulga</h1>
-        <h2>Login de Usuarios</h2>
+        <h2>Registro de Usuarios</h2>
 </header>
 
 <hr />
 
-<form action="validar.php" method="post" >
+<form action="validar_registro.php" method="post" >
 
   <p>
     <label>Nombre Usuario:</label>
@@ -33,13 +33,21 @@
 
   <label>Contraseña:</label>
   <br>
-  <input name="password" type="password" id="password" placeholder="Contraseña" required>
+  <input name="password" type="password" id="password" required placeholder="Contraseña">
   <br><br>
 
-  <input class="btn btn-primary " type="submit" name="Submit" value="Login">
-  <a href="registrar.php">
-    <button class="btn btn-primary " type="button">Registrar</button>
-  </a>
+  <label>Nombre:</label>
+  <br>
+  <input name="nombre" type="text" id="nombre" required placeholder="Nombre">
+  <br><br>
+  <label>Apellidos:</label>
+  <br>
+<input name="apellidos" type="text" id="apellidos" required placeholder="Apellidos">
+<br><br>
+<input class="btn btn-primary " type="submit" name="Submit" value="Registrar">
+<a href="loginin.php">
+  <button class="btn btn-primary " type="button">Regresar</button>
+</a>
 </p>
 </form>
 <hr />

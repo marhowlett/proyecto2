@@ -8,6 +8,22 @@ header {
 header.loginin {
   text-align: center;
 }
+section.content1 {
+  background-color: white;
+  text-align: center;
+}
+section.content2 {
+  background-color: #dd99ff;
+  text-align: center;
+}
+a.panel_menu:link {
+  text-decoration: none;
+  color: black;
+}
+a.panel_menu:link:hover {
+  color: white;
+  background: black;
+}
 a.nav2header {
   color: white;
   font-size: 20px;
@@ -18,7 +34,6 @@ a.nav2header:hover {
 }
 .foto_texto {
   text-align: justify;
-  margin-left: 30px;
   font-size: 1em;
 }
 .hacemos {
@@ -27,5 +42,5 @@ a.nav2header:hover {
 img.fotos {
   width: 200px;
   height: 243px;
-  padding: 10px;
+  margin-left: 50px;
 }
