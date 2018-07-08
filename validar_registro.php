@@ -44,7 +44,7 @@ if ($bandera==0){
    alert('Gracias por registrarte, inicia sesión para continuar')
 
    </script>  <?php
-  
+
     header("Location: loginin.php");
 				}
 
