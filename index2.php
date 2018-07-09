@@ -52,7 +52,7 @@ session_start();
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-           <a class="panel_menu" href="inventario.php"> Inventario</a>
+            <a class="panel_menu" href="inventario.php"> Inventario</a>
           </h1>
         </div>
       </div>

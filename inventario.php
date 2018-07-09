@@ -31,20 +31,6 @@ include('connection.php');
 if ($conexion->connect_error) {
  die("La conexion falló: " . $conexion->connect_error);
 }
-$sql="SELECT * from inventario";
-$result = $conexion->query($sql); //usamos la conexion para dar un resultado a la variable
-if ($result->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
-{
-    $combobit="";
-    while ($row = $result->fetch_array(MYSQLI_ASSOC))
-    {
-        $combobit .=" <option value='".$row['descripcion']."'>".$row['id_producto']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
-    }
-}
-else
-{
-    echo "No hubo resultados";
-}
 
 $ban = 0;
 
@@ -100,11 +86,23 @@ if ($bandera==0){
 				}
 }
 if(!empty($_POST['Buscar'])){  //validar la entrada a aesta accion
+  $id_producto=$_POST['id_producto'];
+  $sql="Select * from inventario where id_producto='".$id_producto."'";
+  echo ($sql);
+  $conexion->real_query($sql);
+  $resultado = $conexion->use_result();
+  while ($fila = $resultado->fetch_assoc()) {
+    $descripcion=$fila["descripcion"];
+    $tipo_producto=$fila["tipo_producto"];
+    $cantidad=$fila["cantidad"];
+    $precio=$fila["precio"];
+  }
+}
 
+if(!empty($_POST['Modificar'])){  //validar la entrada a aesta accion
 
 }
 ?>
-
 
 <hr />
 
@@ -113,27 +111,58 @@ if(!empty($_POST['Buscar'])){  //validar la entrada a aesta accion
   <p>
   <label>Id del producto:</label>
   <br>
-  <input name="id_producto" type="text" id="id_producto" required placeholder="Id del producto" <?php echo ($id_producto)?>>
+  <input name="id_producto" type="text" id="id_producto" required placeholder="Id del producto" value="<?php echo($id_producto); ?>">
   <br>
   <label>Descripción:</label>
   <br>
-<input name="descripcion" type="text" id="descripcion" required placeholder="Descripción">
+<input name="descripcion" type="text" id="descripcion" placeholder="Descripción" value="<?php echo($descripcion); ?>">
 <br>
 <label>Tipo de producto:</label>
 <br>
-<select name="tipo_producto" id="tipo_producto" required>
-    <?php echo $combobit; ?>
+
+<select name="tipo_producto" id="tipo_producto" value="<?php echo($tipo_producto); ?>">
+
+    <?php $sql="SELECT * from tipo_producto";
+    $result = $conexion->query($sql); //usamos la conexion para dar un resultado a la variable
+    if ($result->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
+    {
+
+        $combobit="";
+        while ($row = $result->fetch_array(MYSQLI_ASSOC))
+        {
+          if ($tipo_producto==$row['tipo_producto'])
+          {
+              $combobit .=" <option selected='".$row['descripcion']."'>".$row['tipo_producto']."</option>";
+
+          }
+          else
+          {
+            $combobit .=" <option value='".$row['descripcion']."'>".$row['tipo_producto']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
+
+    }
+            }
+    }
+    else
+    {
+        echo "No hubo resultados";
+    }
+echo $combobit;
+ ?>
+
+
+
+
 </select>
 
 <br>
 
 <label>Cantidad:</label>
 <br>
-<input name="cantidad" type="text" id="cantidad" required placeholder="Cantidad">
+<input name="cantidad" type="text" id="cantidad" required placeholder="Cantidad" value="<?php echo($cantidad); ?>">
 <br>
 <label>Precio:</label>
 <br>
-<input name="precio" type="text" id="precio" required placeholder="precio">
+<input name="precio" type="text" id="precio" required placeholder="precio" value="<?php echo($precio); ?>">
 
 
 <br><br>
