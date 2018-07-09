@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 
-<?php
-session_start();
-?>
 <html lang="es">
 
 <head>
@@ -26,6 +23,7 @@ session_start();
 
 <?php
 session_start();
+date_default_timezone_set("America/Mexico_City");
 ?>
 
 <?php
@@ -177,35 +175,29 @@ if(!empty($_POST['Limpiar'])){
 <form action="inventario.php" method="post" >
 
   <p>
-  <label>Id del producto:</label>
-  <br>
-  <input name="id_producto" type="text" id="id_producto" required placeholder="Id del producto" value="<?php echo($id_producto); ?>">
-  <br>
-  <label>Descripción:</label>
-  <br>
-<input name="descripcion" type="text" id="descripcion" placeholder="Descripción" value="<?php echo($descripcion); ?>">
+<label>Fecha:</label>
 <br>
-<label>Tipo de producto:</label>
+<input type="date-datetime-local" name="cumpleanios" step="1"  value="<?php echo date("Y-m-d h:i:sa");?>">
 <br>
+<label>Id del producto:</label>
+<br>
+<select name="id_producto" id="id_producto" value="<?php echo($tipo_producto); ?>">
 
-<select name="tipo_producto" id="tipo_producto" value="<?php echo($tipo_producto); ?>">
-
-    <?php $sql="SELECT * from tipo_producto";
+    <?php $sql="SELECT * from inventario";
     $result = $conexion->query($sql); //usamos la conexion para dar un resultado a la variable
     if ($result->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
     {
-
         $combobit="";
         while ($row = $result->fetch_array(MYSQLI_ASSOC))
         {
-          if ($tipo_producto==$row['tipo_producto'])
+          if ($tipo_producto==$row['id_producto'])
           {
-              $combobit .=" <option selected='".$row['tipo_producto']."'>".$row['tipo_producto']."</option>";
+              $combobit .=" <option selected='".$row['id_producto']."'>".$row['id_producto']."</option>";
 
           }
           else
           {
-            $combobit .=" <option value='".$row['tipo_producto']."'>".$row['tipo_producto']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
+            $combobit .=" <option value='".$row['id_producto']."'>".$row['id_producto']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
 
     }
             }

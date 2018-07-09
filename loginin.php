@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 
+<?php
+session_start();
+?>
 <html lang="es">
 
 <head>
@@ -10,6 +13,7 @@
 
  <link rel="shortcut icon" type="image/x-icon" href="css/134027.png" />
  <link rel="stylesheet" type="text/css" href="css/prueba.css" />
+
 </head>
 
 <body class="loginin">
