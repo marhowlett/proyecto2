@@ -34,22 +34,24 @@ if ($conexion->connect_error) {
 }
 
 $ban = 0;
-
+/*
   $bandera=0;
   $bandera1=0;
   $id_producto="";
   $descripcion="";
   $tipo_producto="";
   $cantidad=0;
-  $precio=0;
+  $precio=0;*/
   if(!empty($_POST['Agregar'])){  //validar la entrada a aesta accion
+
+
+    /*
  	$id_producto=$_POST['id_producto'];
  $sql1="Select id_producto from inventario where id_producto='".$id_producto."'";
     $conexion->real_query($sql1);
     $resultado = $conexion->use_result();
     while ($fila = $resultado->fetch_assoc()) {
    			 $bandera=1;?>
-
          <script type="text/javascript">
  alert('Producto repetido, favor de validar')
 
@@ -59,16 +61,19 @@ $ban = 0;
     }
     $resultado->close();
 
-if ($bandera==0){
+if ($bandera==0){*/
+
+          $user=$_SESSION["username"];
+
+          $fecha=$_POST['fecha'];
 					$id_producto=$_POST['id_producto'];
-					$descripcion=$_POST['descripcion'];
-					$tipo_producto=$_POST['tipo_producto'];
 		      $cantidad=$_POST['cantidad'];
-          $precio=$_POST['precio'];
+          $user=$_SESSION["username"];
+          echo ($user);
+         $conexion->query("INSERT INTO compra (folio_compra,fecha_compra,id_producto,cantidad,usuario)
+           values('','".$fecha."','".$id_producto."','".$cantidad."','".$user."')");
 
-
-         $conexion->query("INSERT INTO inventario (id_producto,descripcion,tipo_producto,cantidad,precio)
-           values('".$id_producto."','".$descripcion."','".$tipo_producto."','".$cantidad."','".$precio."')");
+           $conexion->query("UPDATE inventario SET descripcion='".$descripcion."',tipo_producto='".$tipo_producto."',cantidad='".$cantidad."',precio='".$precio."' WHERE id_producto='".$id_producto."'");
 
           //mysql_query($sql4);
 
@@ -78,13 +83,8 @@ if ($bandera==0){
 
    </script>  <?php
 
-   $id_producto="";
-   $descripcion="";
-   $tipo_producto="";
-   $cantidad=0;
-   $precio=0;
 
-				}
+
 }
 if(!empty($_POST['Buscar'])){  //validar la entrada a aesta accion
   $ban=0;
@@ -172,12 +172,12 @@ if(!empty($_POST['Limpiar'])){
 
 <hr />
 
-<form action="inventario.php" method="post" >
+<form action="compras.php" method="post" >
 
   <p>
 <label>Fecha:</label>
 <br>
-<input type="date-datetime-local" name="cumpleanios" step="1"  value="<?php echo date("Y-m-d h:i:sa");?>">
+<input type="date-datetime-local" name="fecha" step="1"  id="fecha" value="<?php echo date("Y-m-d h:i:sa");?>">
 <br>
 <label>Id del producto:</label>
 <br>
@@ -222,16 +222,15 @@ echo $combobit;
 <br>
 <label>Precio:</label>
 <br>
-<input name="precio" type="text" id="precio" placeholder="precio" value="<?php echo($precio); ?>">
 
 
 <br><br>
 
 
 <input class="btn btn-primary " type="submit" name="Agregar" value="Agregar" >
-<input class="btn btn-primary " type="submit" name="Buscar" value="Buscar">
-<input class="btn btn-primary " type="submit" name="Modificar" value="Modificar">
-<input class="btn btn-primary " type="submit" name="Eliminar" value="Eliminar">
+<input class="btn btn-primary " type="submit" name="Agregar_Otro" value="Agregar_Otro">
+<input class="btn btn-primary " type="submit" name="Finalizar_Compra" value="Finalizar Compra">
+
 <input class="btn btn-primary " type="submit" name="Limpiar" value="Limpiar">
 <a href="lista_inventario.php">
   <br><br>
