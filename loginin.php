@@ -30,7 +30,7 @@ session_start();
 <form action="validar.php" method="post" >
 
   <p>
-    <label>Nombre Usuario:</label>
+    <label>Usuario:</label>
     <br>
   <input name="username" type="text" id="username" required placeholder="Nombre Usuario">
   <br><br>
