@@ -72,8 +72,18 @@ if ($bandera==0){*/
           echo ($user);
          $conexion->query("INSERT INTO compra (folio_compra,fecha_compra,id_producto,cantidad,usuario)
            values('','".$fecha."','".$id_producto."','".$cantidad."','".$user."')");
+           $id_producto=$_POST['id_producto'];
+           $sql="Select * from inventario where id_producto='".$id_producto."'";
+           echo ($sql);
+           $conexion->real_query($sql);
+           $resultado = $conexion->use_result();
+           while ($fila = $resultado->fetch_assoc()) {
 
-           $conexion->query("UPDATE inventario SET descripcion='".$descripcion."',tipo_producto='".$tipo_producto."',cantidad='".$cantidad."',precio='".$precio."' WHERE id_producto='".$id_producto."'");
+             $cantidad2=$fila["cantidad"];
+           }
+           $cantidad=$cantidad2+$cantidad;
+           echo ($cantidad);
+           $conexion->query("UPDATE inventario SET cantidad='".$cantidad."' where id_producto='".$id_producto."'");
 
           //mysql_query($sql4);
 
@@ -82,6 +92,11 @@ if ($bandera==0){*/
    alert('Producto registrado con exito')
 
    </script>  <?php
+   $id_producto="";
+   $descripcion="";
+   $tipo_producto="";
+   $cantidad=0;
+
 
 
 
@@ -228,8 +243,6 @@ echo $combobit;
 
 
 <input class="btn btn-primary " type="submit" name="Agregar" value="Agregar" >
-<input class="btn btn-primary " type="submit" name="Agregar_Otro" value="Agregar_Otro">
-<input class="btn btn-primary " type="submit" name="Finalizar_Compra" value="Finalizar Compra">
 
 <input class="btn btn-primary " type="submit" name="Limpiar" value="Limpiar">
 <a href="lista_inventario.php">
