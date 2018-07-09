@@ -31,11 +31,11 @@ CREATE TABLE `compra` (
   KEY `folio_compra` (`folio_compra`),
   CONSTRAINT `compra_llave` FOREIGN KEY (`id_producto`) REFERENCES `inventario` (`id_producto`),
   CONSTRAINT `compra_usuario` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf32;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf32;
 
 /*Data for the table `compra` */
 
-insert  into `compra`(`folio_compra`,`fecha_compra`,`id_producto`,`cantidad`,`usuario`) values (1,'2018-07-07 13:43:43','A00-2',2,'marimar'),(2,'2018-07-10 14:01:45','A00-2',3,NULL);
+insert  into `compra`(`folio_compra`,`fecha_compra`,`id_producto`,`cantidad`,`usuario`) values (1,'2018-07-07 13:43:43','A00-2',2,'marimar'),(6,'2018-07-09 04:19:35','B00-3',6,'mar'),(7,'2018-07-09 04:19:35','B00-3',6,'mar'),(8,'2018-07-09 04:19:35','B00-3',6,'mar'),(9,'2018-07-09 04:27:54','01',2,'mar'),(10,'2018-07-09 04:28:55','A00-2',3,'mar'),(11,'2018-07-09 04:29:13','01',5,'mar'),(12,'2018-07-09 04:29:13','01',5,'mar'),(13,'2018-07-09 04:29:13','01',5,'mar'),(14,'2018-07-09 04:29:13','01',5,'mar'),(15,'2018-07-09 04:35:03','01',2,'mar'),(16,'2018-07-09 04:37:18','01',2,'mar'),(17,'2018-07-09 04:37:18','01',2,'mar'),(18,'2018-07-09 04:38:04','01',2,'mar'),(19,'2018-07-09 04:39:38','01',6,'mar'),(20,'2018-07-09 04:39:38','01',6,'mar');
 
 /*Table structure for table `inventario` */
 
@@ -54,7 +54,7 @@ CREATE TABLE `inventario` (
 
 /*Data for the table `inventario` */
 
-insert  into `inventario`(`id_producto`,`descripcion`,`tipo_producto`,`cantidad`,`precio`) values ('01','01','01',30,50),('02','02','03',6,2),('A00-2','aretes dorados','02',2,20),('B00-3','bolsa roja','01',6,180),('C00-4','Collar azul','03',3,20);
+insert  into `inventario`(`id_producto`,`descripcion`,`tipo_producto`,`cantidad`,`precio`) values ('01','01','01',22,50),('02','02','03',10,2),('A00-2','aretes dorados','02',10,20),('B00-3','bolsa roja','01',10,180),('C00-4','Collar azul','03',10,20);
 
 /*Table structure for table `tipo_producto` */
 
@@ -84,7 +84,7 @@ CREATE TABLE `usuario` (
 
 /*Data for the table `usuario` */
 
-insert  into `usuario`(`usuario`,`contraseña`,`nombre`,`apellidos`) values ('','d41d8cd98f00b204e9800998ecf8427e','',''),('jramonell','02c0f8926441b227d8ff9b0a4824cbec','jaime','ramonell'),('jrr','202cb962ac59075b964b07152d234b70','jaime','jaime'),('mar','202cb962ac59075b964b07152d234b70','mar','ramonell'),('marimar','202cb962ac59075b964b07152d234b70','Marimar','Ramonell'),('vero','202cb962ac59075b964b07152d234b70','vero','cuellar');
+insert  into `usuario`(`usuario`,`contraseña`,`nombre`,`apellidos`) values ('jramonell','02c0f8926441b227d8ff9b0a4824cbec','jaime','ramonell'),('jrr','202cb962ac59075b964b07152d234b70','jaime','jaime'),('mar','202cb962ac59075b964b07152d234b70','mar','ramonell'),('marimar','202cb962ac59075b964b07152d234b70','Marimar','Ramonell'),('vero','202cb962ac59075b964b07152d234b70','vero','cuellar');
 
 /*Table structure for table `venta` */
 

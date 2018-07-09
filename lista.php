@@ -32,7 +32,6 @@ $sql1="SELECT * FROM inventario";
 	<?php
            //recorremos resultado de la consulta y añadimos el contenido a la tabla
 	    while ($row = $consultaUsuarios->fetch_assoc()) {
-	   
               echo "<tr>";
               echo "<td>".$row['id_producto']."</td>";
               echo "<td>".$row['descripcion']."</td>";
