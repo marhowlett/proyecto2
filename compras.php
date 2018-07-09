@@ -18,7 +18,7 @@
             <img src="img/logo-regalo.png" alt="" width="100px" height="100px">
         </div>
         <h1 class="text-center">La Pulga</h1>
-        <h2>Modificación de Inventario</h2>
+        <h2>Compras realizadas</h2>
 </header>
 
 <?php
