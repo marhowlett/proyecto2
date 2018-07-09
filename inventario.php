@@ -86,6 +86,7 @@ if ($bandera==0){
 				}
 }
 if(!empty($_POST['Buscar'])){  //validar la entrada a aesta accion
+  $ban=0;
   $id_producto=$_POST['id_producto'];
   $sql="Select * from inventario where id_producto='".$id_producto."'";
   echo ($sql);
@@ -96,11 +97,38 @@ if(!empty($_POST['Buscar'])){  //validar la entrada a aesta accion
     $tipo_producto=$fila["tipo_producto"];
     $cantidad=$fila["cantidad"];
     $precio=$fila["precio"];
+    $ban=1;
+  }
+  if ($ban==0){
+    ?>
+    <script type="text/javascript">
+alert('Producto no encontrado, favor de validar')
+</script>
+<?php
   }
 }
 
 if(!empty($_POST['Modificar'])){  //validar la entrada a aesta accion
+ $bandera=0;
+  $id_producto=$_POST['id_producto'];
+  $sql3="Select id_producto from inventario where id_producto='".$id_producto."'";
+  echo ($sql3);
+  $conexion->real_query($sql3);
+  $resultado = $conexion->use_result();
+  while ($fila = $resultado->fetch_assoc()) {
+    $id_producto=$_POST['id_producto'];
+    $descripcion=$_POST['descripcion'];
+    $tipo_producto=$_POST['tipo_producto'];
+    $cantidad=$_POST['cantidad'];
+    $precio=$_POST['precio'];
+    $ban=1;
+  }
+  echo ($tipo_producto);
 
+  /*$conexion->query("UPDATE inventario SET (id_producto,descripcion,tipo_producto,cantidad,precio)
+    values('".$id_producto."','".$descripcion."','".$tipo_producto."','".$cantidad."','".$precio."')");*/
+$conexion->query("UPDATE inventario SET descripcion='".$descripcion."',tipo_producto='".$tipo_producto."',cantidad='".$cantidad."',precio='".$precio."' WHERE id_producto='".$id_producto."'");
+echo ($sql2);
 }
 ?>
 
@@ -132,12 +160,12 @@ if(!empty($_POST['Modificar'])){  //validar la entrada a aesta accion
         {
           if ($tipo_producto==$row['tipo_producto'])
           {
-              $combobit .=" <option selected='".$row['descripcion']."'>".$row['tipo_producto']."</option>";
+              $combobit .=" <option selected='".$row['tipo_producto']."'>".$row['tipo_producto']."</option>";
 
           }
           else
           {
-            $combobit .=" <option value='".$row['descripcion']."'>".$row['tipo_producto']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
+            $combobit .=" <option value='".$row['tipo_producto']."'>".$row['tipo_producto']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
 
     }
             }
@@ -158,11 +186,11 @@ echo $combobit;
 
 <label>Cantidad:</label>
 <br>
-<input name="cantidad" type="text" id="cantidad" required placeholder="Cantidad" value="<?php echo($cantidad); ?>">
+<input name="cantidad" type="text" id="cantidad" placeholder="Cantidad" value="<?php echo($cantidad); ?>">
 <br>
 <label>Precio:</label>
 <br>
-<input name="precio" type="text" id="precio" required placeholder="precio" value="<?php echo($precio); ?>">
+<input name="precio" type="text" id="precio" placeholder="precio" value="<?php echo($precio); ?>">
 
 
 <br><br>
