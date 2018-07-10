@@ -38,7 +38,7 @@ session_start();
                 <a class="nav-link nav2header" href="compras.php">Compras</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav2header" href="ventas.php">Ventas</a>
+                <a class="nav-link nav2header" href="Venta/pre_venta.php">Ventas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link nav2header" href="index.php">Regresar al incio</a>
@@ -70,7 +70,7 @@ session_start();
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            <a class="panel_menu" href="ventas.php"> Ventas</a>
+            <a class="panel_menu" href="Venta/pre_venta.php"> Ventas</a>
           </h1>
         </div>
       </div>
