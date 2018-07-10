@@ -1,0 +1,29 @@
+em{
+    background-color: rgba(72, 229, 235, 0.75);
+}
+.ui-autocomplete {
+    background: #ffffff;
+    display:inline-block;
+    color: #090909;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 2px;
+    border: 2px solid #4e5066;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.ui-autocomplete li:hover {
+    cursor: pointer;
+}
+.ui-menu-item a.ui-state-focus {
+background: #faa;
+}
+.total {
+    font-size: 42px;
+    color: #0707b5;
+    font-weight: bold;
+}
+.borderClass{
+    border:2px solid red;
+}
