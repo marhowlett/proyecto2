@@ -1,5 +1,18 @@
 <!DOCTYPE html>
-
+<?php
+session_start();
+date_default_timezone_set("America/Mexico_City");
+?>
+            <?php
+            if ($_SESSION["username"] == "") {
+              ?>
+              <script type="text/javascript">
+        alert('No olvides registrarte para poder acceder')
+          location.href="index.php";
+              </script>
+              <?php
+            }
+                ?>
 <html lang="es">
 
 <head>
@@ -21,10 +34,7 @@
         <h2>Compras realizadas</h2>
 </header>
 
-<?php
-session_start();
-date_default_timezone_set("America/Mexico_City");
-?>
+
 
 <?php
 require 'conexionBD/connection.php';

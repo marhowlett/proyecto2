@@ -3,6 +3,16 @@
 session_start();
 
 ?>
+<?php
+if ($_SESSION["username"] == "") {
+  ?>
+  <script type="text/javascript">
+alert('No olvides registrarte para poder acceder')
+location.href="index.php";
+  </script>
+  <?php
+}
+    ?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">

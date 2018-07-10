@@ -2,13 +2,21 @@
 session_start();
 
 ?>
+<?php
+if ($_SESSION["username"] == "") {
+  ?>
+  <script type="text/javascript">
+alert('No olvides registrarte para poder acceder')
+location.href="index.php";
+  </script>
+  <?php
+}
+    ?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>La Pulga de Cuernavaca Morelos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -65,7 +73,7 @@ $sql1="SELECT * FROM inventario";
 <br><br>
 
 <div class="table-responsive">
-   <table class="table table-striped table-dark alig">
+   <table class="table table-striped align">
 	<thead>
            <tr>
               <!-- definimos cabeceras de la tabla -->

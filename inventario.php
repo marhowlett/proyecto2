@@ -3,6 +3,16 @@
 <?php
 session_start();
 ?>
+<?php
+if ($_SESSION["username"] == "") {
+  ?>
+  <script type="text/javascript">
+alert('No olvides registrarte para poder acceder')
+location.href="index.php";
+  </script>
+  <?php
+}
+    ?>
 <html lang="es">
 
 <head>
@@ -241,6 +251,10 @@ echo $combobit;
 <a href="lista_inventario.php">
   <br><br>
   <button class="btn btn-primary " type="button">Lista de inventario</button>
+</a>
+<a href="lista_tipo.php">
+
+  <button class="btn btn-primary " type="button">Lista de tipos de producto</button>
 </a>
 </p>
 </form>

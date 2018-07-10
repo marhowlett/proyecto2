@@ -11,13 +11,23 @@ header.loginin {
 .align {
   text-align: center!important;
 }
+tr,
+td {
+  border: black 5px solid;
+  margin: 15px;
+  padding: 15px;
+}
 tr:hover {
   opacity: 0.5;
 }
 .white2 {
   color: white!important;
-  background-color: black;
+  background-color: #dd99ff;
+  font-size: 20px;
   text-align: center;
+}
+tr {
+  background-color: #dd99ff;
 }
 section.content1 {
   background-color: white;
