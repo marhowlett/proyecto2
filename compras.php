@@ -27,7 +27,7 @@ date_default_timezone_set("America/Mexico_City");
 ?>
 
 <?php
-include('connection.php');
+require 'conexionBD/connection.php';
 
 if ($conexion->connect_error) {
  die("La conexion falló: " . $conexion->connect_error);

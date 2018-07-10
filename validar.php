@@ -1,22 +1,10 @@
 
 <?php
 session_start();
-?>
+require 'conexionBD/connection.php';
 
-<?php
-
-$host_db = "localhost";
-$user_db = "root";
-$pass_db = "marimar94";
-$db_name = "pulga";
 $tbl_name = "usuario";
 
-$conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
-if ($conexion->connect_error) {
- die("La conexion falló: " . $conexion->connect_error);
-}
-session_start();
 // Destruir todas las variables de sesi�n.
 $_SESSION = array();
 if (!isset($_SESSION["username"])){
