@@ -2,6 +2,7 @@
 require '../Cart.php';
 session_start();
 require '../db_connection.php';
+date_default_timezone_set("America/Mexico_City");
 
 /* ===================
     TODOS LOS NOMBRES DE PRODUCTOS PARA EL AUTOCOMPLETE

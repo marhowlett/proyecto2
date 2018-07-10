@@ -3,7 +3,7 @@ function getDB()
 {
     $dbhost="localhost";
     $dbuser="root";
-    $dbpass="jjuandaa34";
+    $dbpass="marimar94";
     $dbname="pulga";
     try {
 

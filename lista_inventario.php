@@ -33,6 +33,37 @@ $sql1="SELECT * FROM inventario";
    $consultaUsuarios = $conexion->use_result();
 
 ?>
+<header>
+
+    <div class="text-center">
+        <img src="img/logo-regalo.png" alt="" width="100px" height="100px">
+
+    <h1 class="text-center">La Pulga</h1>
+    <h2>Lista de inventario</h2>
+  </div>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active nav2header" href="index2.php">Index</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav2header" href="inventario.php">Inventario </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav2header" href="compras.php">Compras</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav2header" href="Venta/pre_venta.php">Ventas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav2header" href="index.php">Regresar al incio</a>
+        </li>
+
+    </ul>
+
+</header>
+
+<br><br>
+
 <div class="table-responsive">
    <table class="table table-striped table-dark alig">
 	<thead>

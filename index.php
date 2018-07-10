@@ -5,7 +5,7 @@ session_start();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>La Pulga de Cuernavaca Morelos</title>
+    <title>La Pulga</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

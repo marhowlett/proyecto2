@@ -24,9 +24,6 @@ session_start();
         <h2>Modificación de Inventario</h2>
 </header>
 
-<?php
-session_start();
-?>
 
 <?php
 require 'conexionBD/connection.php';
