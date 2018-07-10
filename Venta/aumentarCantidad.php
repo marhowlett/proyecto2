@@ -6,7 +6,7 @@ $id_ajax = $_POST['id']; //ID producto a aumentar
 $cantidad_ajax = $_POST['cantidad']; // cantidad a aumentar
 try {
     $db = getDB();
-    $stmt5 = $db->prepare("SELECT * from inventario WHERE id=:id");
+    $stmt5 = $db->prepare("SELECT * from inventario WHERE id_producto=:id");
     $stmt5->execute(array(':id' => $id_ajax));
     $product = $stmt5->fetch(PDO::FETCH_OBJ);
 } catch (PDOException $e) {
@@ -18,7 +18,7 @@ if (!empty($_SESSION['cart'])){
      $oldCart =  null;
   }
   $cart = new Cart($oldCart);
-  $cart->add2($product, $product->id, $cantidad_ajax);
+  $cart->add2($product, $product->id_producto, $cantidad_ajax);
   $_SESSION['cart'] = $cart;
   if (!empty($_SESSION['cart'])){
        $nuevo_total =  $_SESSION['cart']->totalPrice;

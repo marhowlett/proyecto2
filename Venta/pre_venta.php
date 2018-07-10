@@ -68,7 +68,7 @@ date_default_timezone_set("America/Mexico_City");
            $oldCart =  null;
         }
       $cart = new Cart($oldCart);
-      $cart->add($product, $product->id);
+      $cart->add($product, $product->id_producto);
       $_SESSION['cart'] = $cart;
       $db = null;
       header("Location:pre_venta.php");
@@ -246,7 +246,7 @@ date_default_timezone_set("America/Mexico_City");
           $ban = 1;
           foreach ($carro->items as $cart) {
             foreach ($resultado_categorias as $r_catego) {
-              if ($cart['item']->tipo_producto == $r_catego->id) {
+              if ($cart['item']->tipo_producto == $r_catego->tipo_producto) {
                     ?>
                     <div>
                     <tr class="lista-productos">
@@ -254,12 +254,12 @@ date_default_timezone_set("America/Mexico_City");
                       <td><?php echo $cart['item']->descripcion; ?></td>
                       <td><?php echo $r_catego->descripcion; ?></td>
                       <td>$<?php echo $cart['item']->precio; ?></td>
-                      <td><input type="text" name="<?php echo $cart['item']->id; ?>" id="cantidad_venta" class="cantidad-venta" value="<?php echo  $cart['qty']; ?>"></td>
-                      <td class="id" hidden><span class="id"><?php echo $cart['item']->id; ?></span></td>
+                      <td><input type="text" name="<?php echo $cart['item']->id_producto; ?>" id="cantidad_venta" class="cantidad-venta" value="<?php echo  $cart['qty']; ?>"></td>
+                      <td class="id" hidden><span class="id"><?php echo $cart['item']->id_producto; ?></span></td>
                       <td>$<?php echo $cart['price']; ?></td>
                       <td>
                         <p class="field">
-                          <a class="button is-danger is-outlined" href="pre_venta.php?id=<?php echo $cart['item']->id; ?>">
+                          <a class="button is-danger is-outlined" href="pre_venta.php?id=<?php echo $cart['item']->id_producto; ?>">
                             <span>Eliminar</span>
                             <span class="icon is-small">
                               <i class="fas fa-times"></i>
@@ -361,7 +361,7 @@ date_default_timezone_set("America/Mexico_City");
                         $.ajax({
                                     method: 'POST',
                                     url: 'aumentarCantidad.php',
-                                    data: {id: id, cantidad: cantidad, es_ajax: 1},
+                                    data: {id: id, cantidad: cantidad},
                                     error: function (data) {
                                         var errorsHtml = '';
                                         var errors = data.responseJSON;
