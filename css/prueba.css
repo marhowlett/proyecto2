@@ -65,3 +65,7 @@ img.fotos {
   height: 243px;
   margin-left: 50px;
 }
+
+em{
+    background-color: rgba(72, 229, 235, 0.75);
+}
