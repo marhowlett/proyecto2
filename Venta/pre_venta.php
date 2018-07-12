@@ -280,15 +280,6 @@ date_default_timezone_set("America/Mexico_City");
 
       <div class="columns is-mobile">
         <div class="column is-2 is-offset-5">
-          <label for="tipo_venta">Tipo de Venta:</label>
-          <div class="control">
-            <div class="select">
-              <select name="tipo_venta" id="tipo_venta">
-                <option value="Envio">Envío</option>
-                <option value="Fisica">Fisica</option>
-              </select>
-            </div>
-          </div>
         </div>
         <div class="column is-3">
             <div class="field">
@@ -296,14 +287,10 @@ date_default_timezone_set("America/Mexico_City");
             </div>
         </div>
         <div class="column is-2">
-          <p class="field">
-            <button class="button is-success is-outlined" id="continuar">
-              <span>CONTINUAR</span>
-              <span class="icon is-small">
-                <i class="fas fa-check"></i>
-              </span>
-            </button>
-          </p>
+          <form class="" action="guardarVenta.php" method="post">
+            <input type="text" name="totalPrecio" value="<?php if (!empty($_SESSION['cart'])){ echo $_SESSION['cart']->totalPrice;} ?>" hidden>
+            <input type="submit" class="button is-success is-outlined" name="guardarVenta" value="CONFIRMAR">
+          </form>
         </div>
       </div>
     <?php } ?>
